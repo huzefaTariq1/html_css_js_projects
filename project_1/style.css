@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
+:root{
+    --successcolor:green;
+    --errorcolor:orangered;
+}
+
 
 *{
     box-sizing: border-box;
@@ -18,14 +23,15 @@ body{
 
 .container{
    background-color:white;
-   box-shadow: 3px 3px 5px gray;
+   box-shadow: 0 3px 5px gray;
    width: 400px;
    max-height: 100%;
+   border-radius: 7px;
 }
   
 
 form{
-    margin: 8px 15px;
+    margin: 10px 40px;
     margin-bottom: 16px;
 }
 
@@ -35,18 +41,52 @@ form{
 
 .formControl label{
     display: block;
+    margin-bottom: 3px;
 }
 
 .formControl input{
 display: block;
 width: 100%;
 padding: 5px 4px;
+border: 2px solid #ecf0f1;
+border-radius: 5px;
+
 
 }
 
 .formControl input:focus{
     outline: none;
-    border-color: #777;
+    border-color:#777;
+
 }
 
+.formControl.success input:focus{
+    border-color: var(--successcolor);
+}
+.formControl.error input:focus{
+    border-color: var(--errorcolor);
+}
 
+.form button{
+ background-color: rgb(5, 5, 163);
+ color:white;
+ font-size: 17px;
+ width: 100%;
+ padding: 8px 0;
+ border-radius: 5px;
+ box-shadow: 0 0 3px rgb(5, 5, 163) ;
+ cursor: pointer;
+ margin-top: 4px;
+}
+
+.formControl small{
+    visibility: hidden;
+    color: var(--errorcolor);
+}
+
+.formControl.success small{
+    visibility: hidden;
+} 
+.formControl.error small{
+    visibility: visible;
+}
