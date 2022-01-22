@@ -6,23 +6,31 @@ const password=document.getElementById("password");
 const confirmpassword=document.getElementById("confirmpassword");
 
 
-
+//function to show error
 function showError(input,message){
+   //getting parent elemnet "div of input"
    mainDivParent=input.parentElement
+   // assigining new class name
    mainDivParent.className="formControl error";
+   //retriving small element by queryselector
     small=mainDivParent.querySelector("small")
     small.innerText=message;
    
 }
 
+
+// function to show success
 function showSuccess(input){
 mainDivParent=input.parentElement
 mainDivParent.className="formControl success"
 }
 
-
-
-
+function checkEmail(input){
+   
+   var re=  /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+   return re.test(input.toLowerCase());
+   ;
+}
 
 
 
@@ -37,11 +45,14 @@ form.addEventListener("submit",function(e){
    else{
       showSuccess(username);
    }
-
-
+    
+    
    if (email.value===""){
       showError(email,`${email.id} can't be empty`)
    }
+    else if(!checkEmail(email.value)){
+        showError(email,"please provide valid email");
+    }
    else{
       showSuccess(email);
    }
