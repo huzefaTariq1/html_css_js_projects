@@ -23,7 +23,7 @@ body{
 
 .container{
    background-color:white;
-   box-shadow: 0 3px 5px gray;
+   box-shadow: 0 3px 10px rgb(197, 190, 190);
    width: 400px;
    max-height: 100%;
    border-radius: 7px;
@@ -60,10 +60,10 @@ border-radius: 5px;
 
 }
 
-.formControl.success input:focus{
+.formControl.success input{
     border-color: var(--successcolor);
 }
-.formControl.error input:focus{
+.formControl.error input{
     border-color: var(--errorcolor);
 }
 
