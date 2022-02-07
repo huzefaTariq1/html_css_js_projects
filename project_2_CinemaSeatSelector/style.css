@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai+Looped&family=Open+Sans&display=swap');
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgb(32, 31, 31);
+    color: white;
+    font-family: 'IBM Plex Sans Thai Looped', sans-serif;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   height: 100vh;
+   font-size: larger;
+
+}
+
+.movieSelector select{
+    border: none;
+    background-color: aliceblue;
+    padding: 4px;
+    border-radius: 3px;
+}
+
+.seat{
+    height: 30px;
+    width: 30px;
+    background-color: rgb(186, 236, 236);
+    margin: 3px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+
+}
+
+.row{
+    display: flex;
+}
+
+.seat.selected{
+    background-color: rgb(138, 241, 138);
+}
+.seat.booked{
+    background-color: rgb(245, 120, 120);
+}
+
+.screen{
+    width:100%;
+    height: 140px;
+    background-color: rgb(255, 255, 255);
+    margin-bottom: 20px;
+   box-shadow: 0 3px 10px rgba(255, 255, 255, 0.9);
+   transform: rotateX(-45deg);
+}
+
+.container{
+    perspective: 1000px;
+}
+
+.seat:nth-of-type(2){
+    margin-right: 15px;
+}
+
+.seat:nth-last-of-type(2){
+    margin-left: 15px;
+}
+
+.seat:not(.booked):hover{
+    cursor: pointer;
+    transform: scale(1.3);
+}
+
+.legend .seat:hover{
+    cursor:default;
+    transform: scale(1);
+}
+
+.legend {
+    display: flex;
+   padding: 0;
+   background-color: rgba(207, 203, 198, 0.47);
+   padding: 6px;
+   border-radius: 4px;
+}
+
+.legend li {
+    list-style: none;
+    display: flex;
+    margin: 0 2px;
+align-items: center;
+  
+}
+
+
+
+
+
+
