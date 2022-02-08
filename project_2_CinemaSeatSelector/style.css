@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai+Looped&family=Open+Sans&display=swap');
+ :root{
+     --seatcolor:rgb(186, 236, 236);
+ }
 
 *{
     box-sizing: border-box;
@@ -92,6 +95,9 @@ align-items: center;
   
 }
 
+p span {
+    color: var(--seatcolor);
+}
 
 
 
