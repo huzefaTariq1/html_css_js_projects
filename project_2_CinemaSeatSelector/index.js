@@ -6,8 +6,14 @@ const movieSelector=document.getElementById("MovieSelector")
 let moviePrices=+movieSelector.value
 const selectcount=document.getElementById("count");
 const totalprice=document.getElementById("total");
-console.log(moviePrices)
 
+//geeting data from browser local storage
+populateUi();
+
+function populateUi(){
+   const selectedSeatIndexs=JSON.parse(localStorage.getItem('selectedSeatsIndex'))
+   console.log(selectedSeatIndexs)
+}
 
 // event listner for seat selection 
 
@@ -24,6 +30,10 @@ mainContainer.addEventListener('click',(e)=>{
 
 const updateCount=(a)=>{
   const selectedseats=document.querySelectorAll(".row .seat.selected")
+  //assigning indexes to seat
+    const selectedSeatIndexs=[...selectedseats].map((seat)=>{return[...seats].indexOf(seat)})
+   //sending seatsIndexes to browser local storage
+    localStorage.setItem("selectedSeatsIndex",JSON.stringify(selectedSeatIndexs))
   let totalseat=selectedseats.length;
   selectcount.innerText=totalseat;
   let price=totalseat*moviePrices;
@@ -34,11 +44,14 @@ const updateCount=(a)=>{
 
 
 
+
 // event listner for movie selector
 
 movieSelector.addEventListener('change',(e)=>{
-   moviePrices=+e.target.value
-   console.log(moviePrices)
+   moviePrices=+e.target.value;
+   console.log(e.target.selectedIndex)
+   updateCount();
+
 })
 
 
